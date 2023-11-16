@@ -1,6 +1,6 @@
 <template>
     <h1>拉鍊損壞計數器</h1>
-    <p>損壞次數：<span id="damageCounter">0</span></p>
+    <p>損壞次數：{{ zipperData }}</p>
 </template>
 
 <style lang="scss">
@@ -25,20 +25,24 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      number: 0,
+      zipperData: 0,
     };
   },
   mounted() {
-    const filePath = "";
-
-    axios.get(filePath)
-      .then(response => {
-        console.log(`成功抓取檔案 ${filePath}：`, response.data.num);
-        this.number = response.data.num;
-      })
-      .catch(error => {
-        console.error('抓取檔案時發生錯誤：', error.message);
-      });
+    this.fetchZipperData();
+  },
+  methods: {
+    async fetchZipperData() {
+      try {
+        // 發送 GET 請求到 /zipper
+        const response = await axios.get('http://localhost:3000/zipper');
+        // 將伺服器返回的數據存儲到 zipperData 中
+        this.zipperData = response.data.result;
+        console.log(this.zipperData);
+      } catch (error) {
+        console.error('Error fetching data from /zipper:', error);
+      }
+    },
   },
 };
 </script>
