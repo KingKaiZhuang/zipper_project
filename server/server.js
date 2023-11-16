@@ -4,6 +4,7 @@ const hbs = require("hbs");
 const app = express();
 
 const zipperRouter = require('./router/ZipperRouter');
+app.use("/zipper",zipperRouter);
 
 app.use(express.static(path.join(__dirname, '../dist')));
 app.get('*', (req, res) => {
@@ -12,9 +13,10 @@ app.get('*', (req, res) => {
 
 app.get('/', (req, res) => {
     res.send("success");
+    console.log(123);
 });
 
-app.use("/zipper",zipperRouter);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
