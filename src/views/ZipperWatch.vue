@@ -36,8 +36,9 @@ export default {
       try {
         // 發送 GET 請求到 /zipper
         const response = await axios.get('http://localhost:3000/zipper');
+        console.log(response);
         // 將伺服器返回的數據存儲到 zipperData中
-        this.zipperData = response.result.data[0].ZipperNum;
+        this.zipperData = response.data.result[0].ZipperNum;
         console.log(this.zipperData);
       } catch (error) {
         console.log('Error fetching data from /zipper:', error);
