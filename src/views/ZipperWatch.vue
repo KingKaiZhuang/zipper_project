@@ -7,6 +7,8 @@
 import axios from 'axios';
 import io from 'socket.io-client';
 
+const pollingInterval = 5000; // 這裡是 5 秒
+
 export default {
   data() {
     return {
@@ -26,8 +28,10 @@ export default {
         // 將伺服器返回的數據存儲到 zipperData 中
         this.zipperData.value = response.data.result[0].ZipperNum;
         console.log(this.zipperData.value);
+        setTimeout(fetchData, pollingInterval);
       } catch (error) {
         console.log('Error fetching data from /zipper:', error);
+        setTimeout(fetchData, pollingInterval);
       }
     },
     setupWebSocket() {
