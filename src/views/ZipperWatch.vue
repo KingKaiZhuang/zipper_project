@@ -1,11 +1,56 @@
 <template>
+  <HelloWorld msg="Zipper Watch" />
   <h1>拉鍊損壞計數器</h1>
   <p>損壞次數：{{ zipperData.value }}</p>
+  <v-row align="center" justify="center">
+    <v-col cols="auto">
+      <v-card class="mx-auto" max-width="344" title="Icons" subtitle="prepend-icon and append-icon"
+        prepend-icon="mdi-account" append-icon="mdi-check">
+        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-col cols="auto">
+      <v-card class="mx-auto" max-width="344" title="Icons" subtitle="prepend and append">
+        <template v-slot:prepend>
+          <v-icon icon="mdi-account" color="primary"></v-icon>
+        </template>
+        <template v-slot:append>
+          <v-icon icon="mdi-check" color="success"></v-icon>
+        </template>
+        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-col cols="auto">
+      <v-card class="mx-auto" max-width="344" title="Avatars" subtitle="prepend-avatar and append-avatar"
+        prepend-avatar="https://cdn.vuetifyjs.com/images/logos/v-alt.svg"
+        append-avatar="https://cdn.vuetifyjs.com/images/john.jpg">
+        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-col cols="auto">
+      <v-card class="mx-auto" max-width="344" title="Avatars" subtitle="prepend and append">
+        <template v-slot:prepend>
+          <v-avatar color="blue-darken-2">
+            <v-icon icon="mdi-alarm"></v-icon>
+          </v-avatar>
+        </template>
+        <template v-slot:append>
+          <v-avatar size="24">
+            <v-img src="https://cdn.vuetifyjs.com/images/john.png" alt="John"></v-img>
+          </v-avatar>
+        </template>
+        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 import axios from 'axios';
-import io from 'socket.io-client';
+import HelloWorld from '@/components/HelloWorld.vue'
 
 const pollingInterval = 5000; // 這裡是 5 秒
 
@@ -18,7 +63,6 @@ export default {
   },
   mounted() {
     this.fetchZipperData();
-    this.setupWebSocket();
   },
   methods: {
     async fetchZipperData() {
@@ -28,24 +72,16 @@ export default {
         // 將伺服器返回的數據存儲到 zipperData 中
         this.zipperData.value = response.data.result[0].ZipperNum;
         console.log(this.zipperData.value);
-        setTimeout(fetchData, pollingInterval);
+        setTimeout(this.fetchZipperData, pollingInterval);
       } catch (error) {
         console.log('Error fetching data from /zipper:', error);
-        setTimeout(fetchData, pollingInterval);
+        setTimeout(this.fetchZipperData, pollingInterval);
       }
     },
-    setupWebSocket() {
-      this.socket = io('http://localhost:3000');
-      this.socket.on('connect', () => {
-        console.log('WebSocket connected:', this.socket.connected);
-      });
-
-      this.socket.on('zipperDataUpdate', (data) => {
-        // 處理資料更新邏輯
-        console.log("Received WebSocket update:", data.ZipperNum);
-        this.zipperData.value = data.ZipperNum;
-      });
-    }
   },
+  components: {
+    HelloWorld
+  }
 };
+
 </script>
