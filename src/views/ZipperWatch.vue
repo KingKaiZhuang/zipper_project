@@ -1,56 +1,24 @@
 <template>
-  <HelloWorld msg="Zipper Watch" />
-  <h1>拉鍊損壞計數器</h1>
-  <p>損壞次數：{{ zipperData.value }}</p>
-  <v-row align="center" justify="center">
-    <v-col cols="auto">
-      <v-card class="mx-auto" max-width="344" title="Icons" subtitle="prepend-icon and append-icon"
-        prepend-icon="mdi-account" append-icon="mdi-check">
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
-      </v-card>
-    </v-col>
-
-    <v-col cols="auto">
-      <v-card class="mx-auto" max-width="344" title="Icons" subtitle="prepend and append">
-        <template v-slot:prepend>
-          <v-icon icon="mdi-account" color="primary"></v-icon>
-        </template>
-        <template v-slot:append>
-          <v-icon icon="mdi-check" color="success"></v-icon>
-        </template>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
-      </v-card>
-    </v-col>
-
-    <v-col cols="auto">
-      <v-card class="mx-auto" max-width="344" title="Avatars" subtitle="prepend-avatar and append-avatar"
-        prepend-avatar="https://cdn.vuetifyjs.com/images/logos/v-alt.svg"
-        append-avatar="https://cdn.vuetifyjs.com/images/john.jpg">
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
-      </v-card>
-    </v-col>
-
-    <v-col cols="auto">
-      <v-card class="mx-auto" max-width="344" title="Avatars" subtitle="prepend and append">
-        <template v-slot:prepend>
-          <v-avatar color="blue-darken-2">
-            <v-icon icon="mdi-alarm"></v-icon>
-          </v-avatar>
-        </template>
-        <template v-slot:append>
-          <v-avatar size="24">
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png" alt="John"></v-img>
-          </v-avatar>
-        </template>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-app>
+    <HelloWorld msg="Zipper Watch" />
+    <div class="zipper-container">
+      <h1 class="display-5">拉鍊損壞計數器</h1>
+      <v-row justify="center">
+        <v-col cols="12" md="4">
+          <v-card class="zipper-card" max-width="344">
+            <v-card-title class="zipper-card-title">損壞次數</v-card-title>
+            <v-card-text class="zipper-card-text">{{ zipperData.value }}</v-card-text>
+          </v-card>
+        </v-col>
+        <!-- Add more columns or customize as needed -->
+      </v-row>
+    </div>
+  </v-app>
 </template>
 
 <script>
 import axios from 'axios';
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue';
 
 const pollingInterval = 5000; // 這裡是 5 秒
 
@@ -58,7 +26,6 @@ export default {
   data() {
     return {
       zipperData: { value: 0 }, // 將數據包裝在物件中
-      socket: null,
     };
   },
   mounted() {
@@ -80,8 +47,27 @@ export default {
     },
   },
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
 };
-
 </script>
+
+<style scoped>
+.zipper-container {
+  padding: 20px;
+}
+
+.zipper-card {
+  background-color: #333;
+  color: white;
+}
+
+.zipper-card-title {
+  font-size: 24px;
+}
+
+.zipper-card-text {
+  font-size: 36px;
+  font-weight: bold;
+}
+</style>
