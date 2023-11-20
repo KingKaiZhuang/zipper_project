@@ -20,7 +20,7 @@
 import axios from 'axios';
 import HelloWorld from '@/components/HelloWorld.vue';
 
-const pollingInterval = 5000; // 這裡是 5 秒
+const pollingInterval = 3000; // 這裡是 5 秒
 
 export default {
   data() {
