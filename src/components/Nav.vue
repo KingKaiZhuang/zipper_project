@@ -19,17 +19,7 @@
 </template>
   
 <style scoped>
-.fixed-bar {
-    position: fixed;
-    top: 0;
-    z-index: 2;
-}
 
-/* 占位元素的样式，高度应与固定元素的高度相同 */
-.placeholder {
-    height: 56px;
-    /* 根据实际情况调整高度 */
-}
 </style>
   
 <script>
