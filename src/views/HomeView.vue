@@ -1,16 +1,19 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Zipper Watch"/>
+    <HelloHeader/>
+    <HelloWorld/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import HelloHeader from '@/components/HelloViewHeader.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'HomeView',
   components: {
+    HelloHeader,
     HelloWorld
   }
 }

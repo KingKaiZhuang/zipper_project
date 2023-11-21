@@ -4,8 +4,7 @@ import HomeView from '../views/HomeView.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    component: HomeView,
   },
   {
     path: '/about',
@@ -19,12 +18,17 @@ const routes = [
     path: '/zipperWatch',
     name: 'zipperWatch',
     component: () => import('@/views/ZipperWatch.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/NotFound.vue')
   }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  linkActiveClass: 'active',
 })
 
 export default router

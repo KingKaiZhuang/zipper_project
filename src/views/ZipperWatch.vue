@@ -1,24 +1,33 @@
 <template>
-  <h1>拉鍊損壞計數器</h1>
-  <p>損壞次數：{{ zipperData.value }}</p>
+  <v-app>
+    <div class="zipper-container">
+      <h1 class="display-5">拉鍊損壞計數器</h1>
+      <v-row justify="center">
+        <v-col cols="12" md="4">
+          <v-card class="zipper-card" max-width="344">
+            <v-card-title class="zipper-card-title">損壞次數</v-card-title>
+            <v-card-text class="zipper-card-text">{{ zipperData.value }}</v-card-text>
+          </v-card>
+        </v-col>
+        <!-- Add more columns or customize as needed -->
+      </v-row>
+    </div>
+  </v-app>
 </template>
 
 <script>
 import axios from 'axios';
-import io from 'socket.io-client';
 
-const pollingInterval = 5000; // 這裡是 5 秒
+const pollingInterval = 3000; // 這裡是 5 秒
 
 export default {
   data() {
     return {
       zipperData: { value: 0 }, // 將數據包裝在物件中
-      socket: null,
     };
   },
   mounted() {
     this.fetchZipperData();
-    this.setupWebSocket();
   },
   methods: {
     async fetchZipperData() {
@@ -28,24 +37,34 @@ export default {
         // 將伺服器返回的數據存儲到 zipperData 中
         this.zipperData.value = response.data.result[0].ZipperNum;
         console.log(this.zipperData.value);
-        setTimeout(fetchData, pollingInterval);
+        setTimeout(this.fetchZipperData, pollingInterval);
       } catch (error) {
         console.log('Error fetching data from /zipper:', error);
-        setTimeout(fetchData, pollingInterval);
+        setTimeout(this.fetchZipperData, pollingInterval);
       }
     },
-    setupWebSocket() {
-      this.socket = io('http://localhost:3000');
-      this.socket.on('connect', () => {
-        console.log('WebSocket connected:', this.socket.connected);
-      });
-
-      this.socket.on('zipperDataUpdate', (data) => {
-        // 處理資料更新邏輯
-        console.log("Received WebSocket update:", data.ZipperNum);
-        this.zipperData.value = data.ZipperNum;
-      });
-    }
+  },
+  components: {
   },
 };
 </script>
+
+<style scoped>
+.zipper-container {
+  padding: 20px;
+}
+
+.zipper-card {
+  background-color: #333;
+  color: white;
+}
+
+.zipper-card-title {
+  font-size: 24px;
+}
+
+.zipper-card-text {
+  font-size: 36px;
+  font-weight: bold;
+}
+</style>
