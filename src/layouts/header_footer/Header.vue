@@ -8,10 +8,6 @@ const path = computed(() => route.path.replace('/', ''));
 const pageTitle = ref('');
 const { mobile } = useDisplay()
 
-onMounted(() => {
-    pageTitle.value = path.value;
-});
-
 const buttons = [
     {
         value: 'index',
@@ -42,15 +38,17 @@ const buttons = [
         to: '/contact',
     },
 ];
+
+onMounted(() => {
+    pageTitle.value = path.value;
+});
+
 </script>
 
 
 <template>
     <v-app-bar app :elevation="5" fixed>
-        <v-app-bar-nav-icon v-if="!mobile">
-            <v-icon icon="mdi-human-greeting" color="green-darken-4" />
-        </v-app-bar-nav-icon>
-        <v-app-bar-title class="text-deep-purple-lighten-2 text-uppercase" v-if="!mobile">
+        <v-app-bar-title class="text-deep-purple-lighten-2 text-uppercase">
             <span class="font-weight-light">Zipper</span>
             <span>Watch</span>
         </v-app-bar-title>

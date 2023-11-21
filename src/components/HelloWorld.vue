@@ -25,7 +25,7 @@ export default {
         {
           title: "管浩任",
           subtitle: "Yolo 達人",
-          avatar: "https://firebasestorage.googleapis.com/v0/b/zhuang-afef4.appspot.com/o/zipper%2F5b0g0019.jpg?alt=media&token=1717ea18-4ffb-4609-a60a-289200672658",
+          avatar: "https://firebasestorage.googleapis.com/v0/b/zhuang-afef4.appspot.com/o/zipper%2F5b0g0019.jpg?alt=media&token=b08ed3e6-8ef6-4c49-a80a-3770992d7682",
           description: "我專注於 YOLOv7 的開發，將其應用於物體和瑕疵的精確偵測。我的工作範疇包括模型訓練、性能優化和應用部署。",
         },
         {
