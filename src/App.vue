@@ -1,14 +1,18 @@
 <template>
   <v-app>
     <Nav/>
-    <v-content>
+    <v-main>
       <router-view></router-view>
-    </v-content>
+    </v-main>
+    
+    <Footer/>
   </v-app>
+
 </template>
 
 <script>
 import Nav from './layouts/header_footer/Header.vue';
+import Footer from './layouts/header_footer/Footer.vue'
 
 export default {
   name: 'App',
@@ -18,7 +22,8 @@ export default {
     }
   },
   components: {
-    Nav
+    Nav,
+    Footer
   }
 }
 </script>

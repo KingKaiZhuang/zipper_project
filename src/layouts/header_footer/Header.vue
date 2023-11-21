@@ -46,7 +46,7 @@ const buttons = [
 
 
 <template>
-    <v-app-bar app :elevation="5">
+    <v-app-bar app :elevation="5" fixed>
         <v-app-bar-nav-icon v-if="!mobile">
             <v-icon icon="mdi-human-greeting" color="green-darken-4" />
         </v-app-bar-nav-icon>
