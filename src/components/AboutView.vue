@@ -1,6 +1,7 @@
 <template>
     <div class="about">
-      <h1>This is an about page</h1>
+      <h1 class="text-center">實驗設計與過程</h1>
+        
     </div>
   </template>
   

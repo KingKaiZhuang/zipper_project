@@ -3,7 +3,7 @@
     <h1 class="text-center">我們的團隊成員</h1>
     <v-row align="center" justify="center">
       <v-col v-for="member in teamMembers" :key="member.title" cols="auto">
-        <v-card class="mx-auto" max-width="300" :title="member.title" :subtitle="member.subtitle" :prepend-avatar="member.avatar">
+        <v-card class="mx-auto" max-width="420" :title="member.title" :subtitle="member.subtitle" :prepend-avatar="member.avatar">
           <v-card-text>{{ member.description }}</v-card-text>
         </v-card>
       </v-col>
