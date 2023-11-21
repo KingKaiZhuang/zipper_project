@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <HelloWorld msg="Zipper Watch" />
     <div class="zipper-container">
       <h1 class="display-5">拉鍊損壞計數器</h1>
       <v-row justify="center">
@@ -18,7 +17,6 @@
 
 <script>
 import axios from 'axios';
-import HelloWorld from '@/components/HelloWorld.vue';
 
 const pollingInterval = 3000; // 這裡是 5 秒
 
@@ -47,7 +45,6 @@ export default {
     },
   },
   components: {
-    HelloWorld,
   },
 };
 </script>
