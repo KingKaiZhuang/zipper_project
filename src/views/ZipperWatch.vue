@@ -1,12 +1,14 @@
 <template>
   <v-app>
     <div class="zipper-container">
-      <h1 class="display-5">拉鍊損壞計數器</h1>
+      <h1 class="display-4 mb-6 text-center">拉鍊損壞計數器</h1>
       <v-row justify="center">
         <v-col cols="12" md="4">
-          <v-card class="zipper-card" max-width="344">
-            <v-card-title class="zipper-card-title">損壞次數</v-card-title>
-            <v-card-text class="zipper-card-text">{{ zipperData.value }}</v-card-text>
+          <v-card class="zipper-card" max-width="400" outlined>
+            <v-card-title class="zipper-card-title">
+              <span class="headline font-weight-bold">損壞次數</span>
+            </v-card-title>
+            <v-card-text class="zipper-card-text display-2 font-weight-bold">{{ zipperData.value }}</v-card-text>
           </v-card>
         </v-col>
         <!-- Add more columns or customize as needed -->
@@ -49,22 +51,31 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .zipper-container {
+  text-align: center;
   padding: 20px;
 }
 
 .zipper-card {
-  background-color: #333;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  height: 300px;
 }
 
 .zipper-card-title {
-  font-size: 24px;
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
 }
 
 .zipper-card-text {
-  font-size: 36px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  padding: 20px;
 }
+
 </style>
