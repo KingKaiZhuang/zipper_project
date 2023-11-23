@@ -1,17 +1,31 @@
 <template>
   <div class="zipper-container">
-    <h1 class="display-5">拉鍊損壞計數器</h1>
-    <v-row>
-      <v-col cols="12" md="4">
-        <v-card class="zipper-card" max-width="344">
-          <v-card-title class="zipper-card-title">損壞次數</v-card-title>
-          <v-card-text class="zipper-card-text">{{ zipperData.value }}</v-card-text>
-        </v-card>
-      </v-col>
-      <!-- Add more columns or customize as needed -->
-    </v-row>
+    <h1 class="text-center">拉鍊損壞計數器</h1>
+    <v-container>
+      <v-row align="center" justify="center">
+        <v-col cols="12" md="4" sm="6">
+          <v-card class="mx-auto zipper-card" max-width="344">
+            <v-card-title class="zipper-card-title text-center">損壞次數</v-card-title>
+            <v-card-text class="zipper-card-text text-center">{{ zipperData.value }}</v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="4" sm="6">
+          <v-card class="mx-auto zipper-card" max-width="344">
+            <v-card-title class="zipper-card-title text-center">無瑕疵比例</v-card-title>
+            <v-card-text class="zipper-card-text text-center">{{ zipperData.value }}</v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="4" sm="6">
+          <v-card class="mx-auto zipper-card" max-width="344">
+            <v-card-title class="zipper-card-title text-center">瑕疵比例</v-card-title>
+            <v-card-text class="zipper-card-text text-center">{{ zipperData.value }}</v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -49,8 +63,6 @@ export default {
 
 <style scoped>
 .zipper-container {
-  display: flex;
-  justify-content: center;
   padding: 20px;
 }
 
