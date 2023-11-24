@@ -10,12 +10,16 @@ db = client[db_name]
 zipper_collection = db["zipper-table"]
 
 # 更新 ZipperNum、successPercent 和 wrongPercent
-filter_criteria = {"ZipperNum": {"$exists": True}}  # 確保 ZipperNum 屬性存在
+filter_criteria = {
+    "ZipperNum": {"$exists": True},
+    "successPercent": {"$exists": True},
+    "wrongPercent": {"$exists": True}
+}  # 確保 ZipperNum 屬性存在
 update_data = {
     "$set": {
         "ZipperNum": 100,  # 新的 ZipperNum 值
-        "successPercent": 10,  # 新的 successPercent 值
-        "wrongPercent": 9  # 新的 wrongPercent 值
+        "successPercent": 20,  # 新的 successPercent 值
+        "wrongPercent": 1  # 新的 wrongPercent 值
     }
 }
 

@@ -12,13 +12,13 @@
         <v-col cols="12" md="4" sm="6">
           <v-card class="mx-auto zipper-card" max-width="344">
             <v-card-title class="zipper-card-title text-center">無瑕疵比例</v-card-title>
-            <v-card-text class="zipper-card-text text-center">{{ successPercent.value }}</v-card-text>
+            <v-card-text class="zipper-card-text text-center">{{ successPercent.value  }}<span>%</span></v-card-text>
           </v-card>
         </v-col>
         <v-col cols="12" md="4" sm="6">
           <v-card class="mx-auto zipper-card" max-width="344">
             <v-card-title class="zipper-card-title text-center">瑕疵比例</v-card-title>
-            <v-card-text class="zipper-card-text text-center">{{ wrongPercent.value }}</v-card-text>
+            <v-card-text class="zipper-card-text text-center">{{ wrongPercent.value }}<span>%</span></v-card-text>
           </v-card>
         </v-col>
       </v-row>
