@@ -9,9 +9,15 @@ client = MongoClient(conn_config)
 db = client[db_name]
 zipper_collection = db["zipper-table"]
 
-# 更新 ZipperNum
-filter_criteria = {"ZipperNum": {"$exists": True}}  # 確保存在 ZipperNum 屬性
-update_data = {"$set": {"ZipperNum": 100}}  # 將 ZipperNum 更新為新的值
+# 更新 ZipperNum、successPercent 和 wrongPercent
+filter_criteria = {"ZipperNum": {"$exists": True}}  # 確保 ZipperNum 屬性存在
+update_data = {
+    "$set": {
+        "ZipperNum": 100,  # 新的 ZipperNum 值
+        "successPercent": 10,  # 新的 successPercent 值
+        "wrongPercent": 9  # 新的 wrongPercent 值
+    }
+}
 
 # 更新操作
 result = zipper_collection.update_many(filter_criteria, update_data)

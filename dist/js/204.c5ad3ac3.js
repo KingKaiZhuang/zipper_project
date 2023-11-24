@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkzipper_project"]=self["webpackChunkzipper_project"]||[]).push([[204],{7204:function(n,r,e){e.r(r),e.d(r,{default:function(){return s}});var u=e(3396);const t=(0,u._)("h1",null,"404",-1),c=(0,u._)("h2",null,"找不到此頁面",-1);function l(n,r){return(0,u.wg)(),(0,u.iD)(u.HY,null,[t,c],64)}var p=e(89);const i={},o=(0,p.Z)(i,[["render",l]]);var s=o}}]);
-//# sourceMappingURL=204.4413bdcb.js.map
+//# sourceMappingURL=204.c5ad3ac3.js.map
