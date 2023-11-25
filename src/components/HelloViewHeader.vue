@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="https://firebasestorage.googleapis.com/v0/b/zhuang-afef4.appspot.com/o/zipper%2Fv7.png?alt=media&token=f450b612-7693-47bd-aea8-25a55cb978a6">
+        <img src="https://firebasestorage.googleapis.com/v0/b/zhuang-afef4.appspot.com/o/zipper%2Fv7.png?alt=media&token=3887ab7c-6773-4188-9575-197dcec1e286">
     </div>
 </template>
   
