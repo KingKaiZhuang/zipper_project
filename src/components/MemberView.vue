@@ -40,7 +40,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 }
 .wrapper {
   background: white;
