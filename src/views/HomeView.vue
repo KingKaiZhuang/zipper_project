@@ -1,20 +1,20 @@
 <template>
   <div class="home">
     <HelloHeader/>
-    <HelloWorld/>
+    <MemberView/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloHeader from '@/components/HelloViewHeader.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
+import MemberView from '@/components/MemberView.vue'
 
 export default {
   name: 'HomeView',
   components: {
     HelloHeader,
-    HelloWorld
+    MemberView
   }
 }
 </script>
