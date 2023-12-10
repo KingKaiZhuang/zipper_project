@@ -32,9 +32,8 @@ const socialMedias = reactive([
             </v-col>
 
 
-            <v-col class="text-center mt-4" cols="12">
-                <strong>All contents of this site, unless otherwise noted, are ©2000-{{ new Date().getFullYear() }} Daniel.
-                    All Rights Reserved.</strong>
+            <v-col class="text-center" cols="12">
+                <strong>&copy; {{ new Date().getFullYear() }} Daniel. All Rights Reserved.</strong>
             </v-col>
         </v-row>
     </v-footer>
