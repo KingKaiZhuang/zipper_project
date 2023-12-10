@@ -1,14 +1,15 @@
 <template>
     <div class="zipper-img">
-        <div v-for="(image, index) in ZipperImage" :key="index" class="img-content">
-            <img :src="image"  alt="Zipper Image">
-            <p>第 {{ index + 1 }} 次偵測 </p>
+        <div class="img-content">
+            <img :src="ZipperImage[0]"  alt="Zipper Image">
+            <p>{{ result }}</p>
         </div>
     </div>
 </template>
 
 <style>
 .zipper-img {    
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -43,7 +44,8 @@ const images = require.context('@/assets/images', false, /\.(png|jpe?g|gif|svg)$
 export default {
     data () {
         return {
-            ZipperImage: []
+            ZipperImage: [],
+            result: "檢測結果",
         }
     },
     methods: {
