@@ -16,18 +16,18 @@
     align-items: center;
 }
 .zipper-img img {
-    width: 300px;
-    height: 200px;
     vertical-align: top;
     transition: .3s;
+    transform: rotate(90deg);
 }
 .zipper-img img:hover {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
+    transform: rotate(90deg);
 }
 .zipper-img .img-content {
     border: 1px solid rgb(191, 191, 191);
     margin: 5px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .zipper-img .img-content p {
     text-align: center;
