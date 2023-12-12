@@ -8,7 +8,6 @@
       align-tabs="center"
     >
       <v-tab to="/">首頁</v-tab>
-      <v-tab to="/zipperImage">損壞相片</v-tab>
       <v-tab to="/zipperWatch">zipperWatch</v-tab>
     </v-tabs>
 </v-app-bar>

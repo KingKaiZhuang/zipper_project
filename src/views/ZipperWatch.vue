@@ -1,6 +1,5 @@
 <template>
   <div class="zipper-container">
-    <h1 class="text-center">拉鍊損壞計數器</h1>
     <v-container>
       <v-row align="center" justify="center">
         <v-col cols="12" md="4" sm="6">
@@ -12,7 +11,7 @@
         <v-col cols="12" md="4" sm="6">
           <v-card class="mx-auto zipper-card" max-width="344">
             <v-card-title class="zipper-card-title text-center">無瑕疵比例</v-card-title>
-            <v-card-text class="zipper-card-text text-center">{{ successPercent.value  }}<span>%</span></v-card-text>
+            <v-card-text class="zipper-card-text text-center">{{ successPercent.value }}<span>%</span></v-card-text>
           </v-card>
         </v-col>
         <v-col cols="12" md="4" sm="6">
@@ -22,16 +21,23 @@
           </v-card>
         </v-col>
       </v-row>
+      <v-row align="center" justify="center">
+        <Imageview />
+      </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Imageview from '@/components/ImagesView.vue';
 
 const pollingInterval = 3000; // 這裡是 5 秒
 
 export default {
+  components: {
+    Imageview
+  },
   data() {
     return {
       zipperData: { value: 0 }, // 將數據包裝在物件中
@@ -51,18 +57,13 @@ export default {
         this.zipperData.value = response.data.data[0].ZipperNum;
         this.successPercent.value = response.data.successPercent;
         this.wrongPercent.value = response.data.wrongPercent;
-        console.log("拉鍊損壞次數:",this.zipperData.value);
-        console.log("拉鍊成功比例:",this.successPercent);
-        console.log("拉鍊損壞比例:",this.wrongPercent);
         setTimeout(this.fetchZipperData, pollingInterval);
       } catch (error) {
         console.log('Error fetching data from /zipper:', error);
         setTimeout(this.fetchZipperData, pollingInterval);
       }
     },
-  },
-  components: {
-  },
+  }
 };
 </script>
 

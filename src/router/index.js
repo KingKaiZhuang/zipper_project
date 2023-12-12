@@ -7,14 +7,6 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/zipperImage',
-    name: 'zipperImage',
-    // route level code-splitting
-    // this generates a separate chunk (zipperImage.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../views/ImagesView.vue')
-  },
-  {
     path: '/zipperWatch',
     name: 'zipperWatch',
     component: () => import('@/views/ZipperWatch.vue')
