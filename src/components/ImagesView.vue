@@ -7,7 +7,7 @@
     <v-col cols="6">
         <div class="zipper-img">
             <div class="img-content">
-                <img :src="ZipperImage[0]" alt="Zipper Image">
+                <img :src="ZipperImage[ZipperImage.length - 1]" alt="Zipper Image">
                 <p>{{ result }}</p>
             </div>
         </div>
