@@ -41,7 +41,7 @@ router.get("/", async (req, res) => {
 router.get('/images', async (req, res) => {
   try {
     res.json({ result: "success" });
-  }catch(err){
+  } catch(err) {
     res.status(500).json({ message: "error: " + err.message });
   }
 });
