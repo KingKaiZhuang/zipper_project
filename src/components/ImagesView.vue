@@ -5,14 +5,6 @@
                 alt="">
         </div>
     </v-col>
-    <v-col cols="6">
-        <div class="zipper-img">
-            <div class="img-content">
-                <img :src="ZipperImage[ZipperImage.length - 1]" alt="Zipper Image">
-                <p>{{ result }}</p>
-            </div>
-        </div>
-    </v-col>
 </template>
 
 <style>
@@ -65,18 +57,20 @@ export default {
   },
   methods: {
     async catchImage() {
-        try {
-            const images = await axios.get('http://localhost:3000/zipper/images');
-            console.log(images);
-        }catch(err){
-            console.log(err);
-        }
+      try {
+        const response = await axios.get('http://localhost:3000/zipper/images');
+        this.ZipperImage = response.data.imagePaths;
+        console.log(this.ZipperImage);
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
   created() {
+    // 設定定時器，每隔5秒執行一次catchImage方法
     setInterval(() => {
       this.catchImage();
-    }, 1000);
+    }, 5000);
   },
 };
 </script>
